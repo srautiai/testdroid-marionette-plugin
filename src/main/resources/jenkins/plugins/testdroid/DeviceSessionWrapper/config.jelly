@@ -38,6 +38,9 @@
                 <f:textbox name="flashProjectName"
                            value="${instance.flashProjectName}" />
             </f:entry>
+            <f:entry field="opensConnections">
+                <f:checkbox name="opensConnections" title="After flashing make the device available for adb and marionette connections"/>
+            </f:entry>
         </f:advanced>
     </f:entry>
 
