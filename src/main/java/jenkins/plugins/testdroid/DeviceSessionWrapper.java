@@ -239,6 +239,7 @@ public class DeviceSessionWrapper extends BuildWrapper {
                 //1) request device session
                 try {
                     session = client.post("/me/device-sessions", deviceSessionsParams, APIDeviceSession.class);
+                    sessionId = session.getId();
                 } catch (APIException e) {
                     //allow to continue if device lock can't be created otherwise throw IOException
                     if (e.getStatus() != 400) {
@@ -251,6 +252,7 @@ public class DeviceSessionWrapper extends BuildWrapper {
                     logger.info("Timeout when waiting for device session " + session.getId());
                     releaseDeviceSession(logger, client, session.getId(), null);
                     session = null;
+                    sessionId = null;
 
                 }
 
